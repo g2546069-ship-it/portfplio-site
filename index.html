@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "ja">
+    <head>
+        <meta  charset ="UTF-8">
+        <title>Azuki Tsukada</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#top">Azuki Tsukada</a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#works">Works</a>
+            </nav>
+        </header>
+        <main>
+            <section id="top">
+                <img src="./media/image1.png" width="80%">
+                <h1>
+                    Azuki Tsukada<br>
+                    portfolio
+                </h1>
+            </section>
+            <section id="about">
+                <h3>About</h3>
+                <p>
+                    塚田 杏稀<br>
+                    東京都市大学デザインデータ科学部
+                </p>
+                <p>
+                    専門:UI/UXデザイン<br>
+                    趣味：チェス
+                </p>
+            </section>
+            <section id="works" class="works">
+                <h3>Works</h3>
+                <div class="works-controls">
+                    <select id="category">
+                        <option value="all">すべてのカテゴリ</option>
+                    </select>
+                    <select id="sort">
+                        <option value="new">新しい順</option>
+                        <option value="old">古い順</option>
+                        <option value="title">タイトル順</option>
+                    </select>
+                </div>
+                <div id="works-grid"></div>
+            </section>
+        </main>  
+        <footer>
+            <span> © 2026 Azuki Tsukada</span>
+        </footer>
+        <script src="works.js"></script>
+    </body>
+</html>
