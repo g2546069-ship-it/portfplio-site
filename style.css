@@ -116,9 +116,9 @@ body{
 }
 
 /*天気*/
-.weather-icon {
-    width: 60px;
-    margin: 0;
+#weather-icon {
+    font-size: 60px;
+    margin:0;
 }
 
 /* 晴れ */
