@@ -125,3 +125,43 @@ fetch("works.csv")
         });
 
     });
+
+    var latitude = 35.6895; // 東京の緯度
+    var longitude = 139.6917; // 東京の経度
+    
+    var weatherUrl =
+    "https://api.open-meteo.com/v1/forecast?latitude=" + 
+    "?latitude=" + latitude + 
+    "&longitude=" + longitude + 
+    "&current_weatherature_2m, weather_code" +
+    "&timezone=Asia/Tokyo";
+
+fetch(weatherUrl)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        var weatherCode = data.current_.weather_code;
+        showWeather(weatherCode);
+    })
+function showWeather(weatherCode) {
+    
+    var weatherIcon = document.getElementById("weather-icon");
+    
+    if (weatherCode === 0) {
+        weatherIcon.textContent = "☀️"; // 晴れ
+        document.body.style.className = "weather-sunny";
+
+    } else if (weatherCode === 1 && weatherCode <= 3) {
+        weatherIcon.textContent = "⛅"; // 曇り
+        document.body.style.className = "weather-cloudy";
+
+    } else if (weatherCode === 51 && weatherCode <= 67) {
+        weatherIcon.textContent = "🌧️"; //雨
+        document.body.style.className = "weather-rainy";
+
+    } else {
+        weatherIcon.textContent = "❓"; // 不明weatherIcon.textContent = "⛅"; // 曇り
+        document.body.style.className = "weather-cloudy";
+    }
+}

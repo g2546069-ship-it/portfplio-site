@@ -114,3 +114,35 @@ body{
         flex-direction: column;
     }
 }
+
+/*天気*/
+.weather-icon {
+    width: 60px;
+    margin: 0;
+}
+
+/* 晴れ */
+body.weather-sunny {
+background-color:#fffaf0;
+}
+body.weather-sunny .site-header {
+background-color:#fffaf0;
+}
+
+/*曇り */
+body.weather-cloudy {
+background-color: #dfe3e8;
+}
+
+body.weather-cloudy .site-header {
+background-color:#dfe3e8;
+}
+
+/*雨*/
+body.weather-rainy {
+background-color: #cbd9e5;
+}
+
+body.weather-rainy .site-header {
+background-color:#cbd9e5;
+}
