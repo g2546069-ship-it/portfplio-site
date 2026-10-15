@@ -1,109 +1,190 @@
+
+/* フォント読み込み*/
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/* ベース設定*/
+*{ box-sizing: border-box; }
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body{
-    background: #ffffff;
-    color: #5a5faa;
- }
- a {
+    background: #f7f1e8;
+    color: #1f3b42;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+    margin: 0;
+    line-height: 1.7;
+    transition: background-color 0.5s ease;
+}
+
+a {
     color: inherit;
     text-decoration: none;
- }
- header{
+}
+
+/*ヘッダー*/
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     position: fixed;
     padding: 0px 30px;
- }
- nav{
-    display: flex;
-    gap: 28px;
- }
- *{box-sizing: border-box;}
- html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 50px;
- }
- header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    padding: 0px 30px;
-    background: #ffffff;
+    background: rgba(247, 241, 232, 0.85); /* 半透明へ*/
+    backdrop-filter: blur(8px);             /* うっすら透ける */
     height: 75px;
     top: 0;
- }
- section{
-    padding: 10px 30px;
- }
- footer{
-    padding: 20px 30px;
-    font-size: 11px;
- }
- nav a:hover {
-    color: #080c40;
- }
- #top{
-    padding: 40px 0 0 0;
- }
+    z-index: 100;
+    border-bottom: 1px solid rgba(31, 59, 66, 0.08);
+}
 
-/*Works*/
+nav{
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* 小豆色の下線 */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #9d262a;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #9d262a;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* セクション & トップバナー */
+section{
+    padding: 10px 30px;
+}
+
+#top{
+    padding: 90px 0 0 0; /* ヘッダーと重ならないよう位置を調整 */
+    text-align: center;
+}
+
+/* トップ画像の装飾 */
+#top img {
+    max-width: 850px;
+    border-radius: 14px;                           /* 角を少し丸く */
+    box-shadow: 0 6px 20px rgba(31, 59, 66, 0.1); /* ふんわりとした影 */
+    transition: transform 0.3s ease;
+}
+
+#top img:hover {
+    transform: scale(1.01); /* 触れたときにほんのり拡大 */
+}
+
+/*  Works（作品カード）*/
 #works-grid {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.work-card {
+    background: #ffffff;
+    border-radius: 14px;                           /* 角丸 */
+    overflow: hidden;                              /* はみ出し防止 */
+    box-shadow: 0 4px 16px rgba(31, 59, 66, 0.08); /* 柔らかい影 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .work-card img {
-     width:100%;
-     aspect-ratio: 4/3;
-     object-fit: cover;
-     display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
 }
-.work-card {
-     border: 1px solid #000000;
 
-}
 .work-card h4 {
-     margin: 15px 15px 5px;
+    margin: 15px 15px 5px;
+    color: #1f3b42;
 }
 
 .work-card p {
-     margin: 0 15px 15px;
-     font-size: 14px;
-     line-height: 1.6;
+    margin: 0 15px 15px;
+    font-size: 14px;
+    line-height: 1.6;
 }
+
+/* ふわりとした浮き上がり */
 .work-card:hover {
-     opacity: 0.7;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(31, 59, 66, 0.15);
+    opacity: 0.95;
 }
+
 .work-controls {
     display: flex;
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
+
 .work-controls select {
     padding: 10px;
     font-size: 16px;
+    border: 1px solid rgba(31, 59, 66, 0.2);
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #1f3b42;
 }
+
 .work-category {
     font-size: 12px;
     padding-top: 14px;
-    color: #9c9c9c;
+    color: #9d262a; /*小豆色 */
+    font-weight: 700;
 }
+
 .work-year {
     font-size: 10px;
     margin-top: 10px;
 }
-/*スマートフォン*/
+
+/*  天気バッジ & フッター*/
+#weather-icon {
+    display: inline-block;
+    font-size: 26px;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(157, 38, 42, 0.15);
+    border-radius: 20px;
+    margin: 10px 0 0 0;
+}
+
+footer{
+    padding: 30px 30px 20px;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* スマートフォン対応 */
 @media screen and (max-width: 600px) {
     #top{
-        padding: 80px
+        padding: 90px 10px 0;
     }
 
     #top img{
-         width: 100%;
+        width: 100%;
     }
 
     #works-grid {
@@ -115,34 +196,15 @@ body{
     }
 }
 
-/*天気*/
-#weather-icon {
-    font-size: 60px;
-    margin:0;
-}
-
-/* 晴れ */
+/* 天気連動背景色 */
 body.weather-sunny {
-background-color:#fffaf0;
-}
-body.weather-sunny .site-header {
-background-color:#fffaf0;
+    background-color: #f7f1e8; /* 晴れ：アイボリー */
 }
 
-/*曇り */
 body.weather-cloudy {
-background-color: #dfe3e8;
+    background-color: #eae8e3; /* 曇り：グレージュ */
 }
 
-body.weather-cloudy .site-header {
-background-color:#dfe3e8;
-}
-
-/*雨*/
 body.weather-rainy {
-background-color: #cbd9e5;
-}
-
-body.weather-rainy .site-header {
-background-color:#cbd9e5;
+    background-color: #cbd9e5; /* 雨：ポスターになじむくすみブルー */
 }

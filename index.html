@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang = "ja">
+<html lang="ja">
     <head>
-        <meta  charset ="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Azuki Tsukada</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <a href="#top">Azuki Tsukada</a>
+            <a href="#top" class="logo">Azuki Tsukada</a>
             <nav>
                 <a href="#about">About</a>
                 <a href="#works">Works</a>
@@ -16,12 +16,14 @@
         </header>
         <main>
             <section id="top">
-                <img src="./media/image1.png" width="80%">
+                <img src="./media/banner.png" alt="Azuki Tsukada Visual" class="top-banner">
                 <h1>
                     Azuki Tsukada<br>
                     portfolio
                 </h1>
-                <p id="weather-icon"> </p>
+                <div id="weather-badge">
+                    <span id="weather-icon"></span>
+                </div>
             </section>
             <section id="about">
                 <h3>About</h3>
@@ -30,7 +32,7 @@
                     東京都市大学デザインデータ科学部
                 </p>
                 <p>
-                    専門:UI/UXデザイン<br>
+                    専門: UI/UXデザイン<br>
                     趣味：チェス
                 </p>
             </section>
@@ -50,7 +52,7 @@
             </section>
         </main>  
         <footer>
-            <span> © 2026 Azuki Tsukada</span>
+            <span>© 2026 Azuki Tsukada</span>
         </footer>
         <script src="works.js"></script>
     </body>
